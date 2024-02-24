@@ -94,8 +94,8 @@ const Index = () => {
     return transactions.filter((transaction) => {
       const matchType = filterType ? transaction.type === filterType : true;
       const matchCategory = filterCategory ? transaction.category === filterCategory : true;
-      const matchDateFrom = filterDateFrom ? new Date(transaction.date) >= new Date(filterDateFrom) : true;
-      const matchDateTo = filterDateTo ? new Date(transaction.date) <= new Date(filterDateTo) : true;
+      const matchDateFrom = filterDateFrom !== "" ? new Date(transaction.date) >= new Date(filterDateFrom) : true;
+      const matchDateTo = filterDateTo !== "" ? new Date(transaction.date) <= new Date(filterDateTo) : true;
       return matchType && matchCategory && matchDateFrom && matchDateTo;
     });
   };
